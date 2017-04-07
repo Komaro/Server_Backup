@@ -40,7 +40,10 @@ $send_roll_book;
 
 while($data = mysqli_fetch_array($catch_roll_book)){
     
-    $send_roll_book .= $data['user_name'] . "∥" . $data['user_id']. "∥" . $data['nfc_code'] . "∥";
+    $send_roll_book .= $data['user_name'] . "∥" . 
+                       $data['user_id']. "∥" . 
+                       $data['nfc_code'] . "∥";
+                       
     if($data['roll_check'] == "")
     {
         $send_roll_book .= "M";
