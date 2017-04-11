@@ -21,37 +21,32 @@ $catch_l_id = $_POST["l_id"];
 $catch_start_date = $_POST["start_date"];
 $catch_end_date = $_POST["end_date"];
 
-$catch_query = mysqli_query($my_db, "SELECT * FROM Lecture WHERE l_user = '" . $catch_user_id . "'");
-$catch_lecture = mysqli_fetch_array($catch_query);
-
-if($catch_lecture['l_id'])
+if($catch_user_id != "")
 {
-    echo $catch_lecture['l_id'] . "∥" . $catch_lecture['l_name'];
 
-    while($catch_lecture = mysqli_fetch_array($catch_query))
-    {   
-        if($catch_lecture['l_id'] != NULL)
-        {
-            echo "┃" . $catch_lecture['l_id'] . "∥" . $catch_lecture['l_name'];
+    $catch_query = mysqli_query($my_db, "SELECT * FROM Lecture WHERE l_user = '" . $catch_user_id . "'");
+    $catch_lecture = mysqli_fetch_array($catch_query);
+
+    if($catch_lecture['l_id'])
+    {
+        echo $catch_lecture['l_id'] . "∥" . $catch_lecture['l_name'];
+
+        while($catch_lecture = mysqli_fetch_array($catch_query))
+        {   
+            if($catch_lecture['l_id'] != NULL)
+            {
+                echo "┃" . $catch_lecture['l_id'] . "∥" . $catch_lecture['l_name'];
+            }
         }
     }
-}
-else
-{
-    echo "fail";
+    else
+    {
+        echo "fail";
+        return;
+    }
+
     return;
 }
-
-echo "<br>";
-
-/*
-while($catch_lecture = mysqli_fetch_array($catch_query))
-{
-    if($catch_lecture['l_id'] != NULL)
-    {
-        echo $catch_lecture['l_id'] . $catch_lecture['l_name'];
-    }
-}*/
 
 
 $catch_roll_book = mysqli_query($my_db, "SELECT user_name, a_id AS user_id, b_id AS roll_check, nfc_code, check_date
