@@ -2,7 +2,7 @@
 
 include("../DB/connect.php");
 
-$db_connect = connect();
+if($db_connect = connect() == 0) exit;
 
 $catch_nfc = $_POST["nfc_code"];
 

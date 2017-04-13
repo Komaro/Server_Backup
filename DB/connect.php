@@ -12,7 +12,8 @@ function connect()
 
     if ( mysqli_connect_errno() ) {
     echo mysqli_connect_error();
-    exit;
+
+    return 0;
     }
 
     return $my_db;
