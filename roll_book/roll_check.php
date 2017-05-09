@@ -20,11 +20,13 @@ $l_id = $_POST["l_id"];
 $check_date = $_POST["check_date"];
 $user_id = $_POST["user_id"];
 $nfc_code = $_POST["nfc_code"];
+$phone_number = $_POST["phone_number"];
 
 if($my_db->query("INSERT INTO Roll_Book_Check() VALUES('" . $l_id .
                  "','" . $check_date . 
                  "','" . $user_id . 
-                 "','" . $nfc_code. 
+                 "','" . $nfc_code.
+                 "','" . $phone_number. 
                  "')") != TRUE)
 {
     echo "fail";

@@ -23,11 +23,21 @@ $catch_user_data = mysqli_query($my_db, "SELECT * FROM User_table WHERE user_id 
 
 while($data = mysqli_fetch_array($catch_user_data)){
     $receive_pass = $data['user_pass'];
+    $receive_type = $data['user_type'];
 }
+
+echo $recevie_type;
 
 if($catch_pass == $receive_pass && $catch_pass != "")
 {
-    echo "ok";
+    if($receive_type == "P")
+    {
+        echo "P";
+    }
+    else
+    {
+        echo "S";   
+    }
 }
 else
 {
