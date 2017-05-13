@@ -49,10 +49,10 @@ if($catch_user_id != "")
 }
 
 
-$catch_roll_book = mysqli_query($my_db, "SELECT user_name, a_id AS user_id, b_id AS roll_check, nfc_code, check_date
+$catch_roll_book = mysqli_query($my_db, "SELECT user_name, a_id AS user_id, b_id AS roll_check, nfc_code, check_date, late
                                          FROM User_table
                                          RIGHT OUTER JOIN (
-                                            SELECT A.user_id AS a_id, B.user_id AS b_id, B.nfc_code, B.check_date
+                                            SELECT A.user_id AS a_id, B.user_id AS b_id, B.nfc_code, B.check_date, B.late
                                             FROM (SELECT *
                                                   FROM Roll_Book
                                                   WHERE l_id = '" . $catch_l_id . "') AS A
@@ -79,6 +79,10 @@ while($data = mysqli_fetch_array($catch_roll_book)){
     if($data['roll_check'] == "")
     {
         $send_roll_book .= "M";
+    }
+    else if($data['late'] == "L")
+    {
+        $send_roll_book .="L";
     }
     else
     {

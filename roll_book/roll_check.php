@@ -16,17 +16,21 @@ echo mysqli_connect_error();
 exit;
 }
 
+$late = "";
+
 $l_id = $_POST["l_id"];
 $check_date = $_POST["check_date"];
 $user_id = $_POST["user_id"];
 $nfc_code = $_POST["nfc_code"];
 $phone_number = $_POST["phone_number"];
+$late = $_POST["late"];
 
 if($my_db->query("INSERT INTO Roll_Book_Check() VALUES('" . $l_id .
                  "','" . $check_date . 
                  "','" . $user_id . 
                  "','" . $nfc_code.
-                 "','" . $phone_number. 
+                 "','" . $phone_number.
+                 "','" . $late.  
                  "')") != TRUE)
 {
     echo "fail";
