@@ -10,8 +10,6 @@ if(($db_connect = connect()) == 0)
 
 $catch_nfc = $_POST["nfc_code"];
 
-echo $catch_nfc;
-
 if($db_connect->query("INSERT INTO Nfc_Code() VALUES('" . $catch_nfc
                     . "')") != TRUE)
 {

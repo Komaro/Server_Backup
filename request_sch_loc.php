@@ -21,7 +21,11 @@ $loc_id = $_POST["loc_id"];
 $sch_query = mysqli_query($my_db, "SELECT * FROM L_schedule WHERE loc_id = '" . $loc_id . "'");
 
 while($data = mysqli_fetch_array($sch_query)){
- echo $data['week'] . "∥" . $data["s_time"] . "∥" . $data["e_time"] . "∥" . $data["l_id"] . "∥" . $data["l_name"] . "┃";
+ echo $data['week'] . "∥" . 
+      $data["s_time"] . "∥" . 
+      $data["e_time"] . "∥" . 
+      $data["l_id"] . "∥" . 
+      $data["l_name"] . "┃";
 }
 
 ?>

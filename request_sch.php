@@ -21,7 +21,12 @@ $user_id = $_POST["user_id"];
 $sch_query = mysqli_query($my_db, "SELECT * FROM L_schedule WHERE user_id = '" . $user_id . "'");
 
 while($data = mysqli_fetch_array($sch_query)){
- echo $data['week'] . "∥" . $data["s_time"] . "∥" . $data["e_time"] . "∥" . $data["l_id"] . "∥" . $data["l_name"] . "┃";
+ echo $data['week'] . "∥" . 
+      $data["s_time"] . "∥" . 
+      $data["e_time"] . "∥" . 
+      $data["l_id"] . "∥" . 
+      $data["l_name"] . "∥" . 
+      $data["loc_id"] ."┃";
 }
 
 ?>
