@@ -31,13 +31,15 @@ $l_id = $_POST["l_id"];
 $p_id = $_POST["p_id"];
 $catch_manager = $_POST["pass"];
 
+echo "<br> first : " . $l_id . " " . $p_id . " " . "<br>";
+
 $catch_user_id = mysqli_query($my_db, "SELECT * FROM Lecture WHERE l_id = '" . $l_id . "'");
 $data = mysqli_fetch_array($catch_user_id);
 
 $user = $data["l_user"];
 $l_name = $data["l_name"];
 
-//echo "<br>" . $user . " - " . $l_name . "<br>";
+echo "<br>" . $user . " - " . $l_name . "<br>";
 
 $dir_path = "./ppt_upload/" . $user . "/" . $l_id . "_" . $l_name;
 //echo $dir_path . "<br>";
@@ -77,6 +79,9 @@ $l_id =  $data["l_id"];
 if($my_db->query("DELETE FROM PPT WHERE l_id = " . $l_id) != TRUE)
 {
   echo "<br> delete fail <br>";
+}
+else{
+  echo "<br>delete complete<br>";
 }
 
 for($i=0;$i<$total;$i++)
@@ -120,16 +125,17 @@ else
   echo "ok";
 }
 
-//echo "<br><br>자세한 디버깅 정보입니다:";
-//print_r($_FILES);
-//print "</pre>"; 
-
-
+/*
+echo "<br><br>자세한 디버깅 정보입니다:";
+print_r($_FILES);
+print "</pre>"; 
+*/
+/*
 if($catch_manager != NULL)
 {
   ?>
     <script> document.location.href = './manager_tool/upload_page.php' </script>
   <?php
-}
+}*/
 
 ?>
