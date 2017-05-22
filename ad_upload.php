@@ -130,12 +130,12 @@ echo "<br><br>자세한 디버깅 정보입니다:";
 print_r($_FILES);
 print "</pre>"; 
 */
-/*
+
 if($catch_manager != NULL)
 {
   ?>
     <script> document.location.href = './manager_tool/upload_page.php' </script>
   <?php
-}*/
+}
 
 ?>
